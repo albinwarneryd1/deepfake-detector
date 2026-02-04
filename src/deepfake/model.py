@@ -20,3 +20,5 @@ def load(self) -> tf.keras.Model:
             "Run `python train.py` first."
         )
     return tf.keras.models.load_model(str(self.model_path))
+
+print(f"[ModelLoader] Loading model from {self.model_path}")
