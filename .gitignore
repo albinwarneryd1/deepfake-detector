@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# ML / data
+real_and_fake_face/
+*.h5
+*.keras
+
+# OS / editor
+.DS_Store
+.vscode/
+.streamlit/
+
+# Jupyter
+.ipynb_checkpoints/
+
