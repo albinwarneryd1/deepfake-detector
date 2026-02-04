@@ -1,24 +1,20 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Union
+from typing import Any
 
-import tensorflow as tf
+from tensorflow.keras.models import load_model
 
-PathLike = Union[str, Path]
 
-@dataclass
+@dataclass(frozen=True)
 class KerasModelLoader:
     model_path: Path
 
-    def __init__(self, model_path: PathLike):
-        self.model_path = Path(model_path)
-
-def load(self) -> tf.keras.Model:
-    if not self.model_path.exists():
-        raise FileNotFoundError(
-            f"Model file not found at {self.model_path}. "
-            "Run `python train.py` first."
-        )
-    return tf.keras.models.load_model(str(self.model_path))
-
-print(f"[ModelLoader] Loading model from {self.model_path}")
+    def load(self) -> Any:
+        """Load and return a Keras model from disk."""
+        path = Path(self.model_path)
+        print(f"[ModelLoader] Loading model from: {path}")
+        if not path.exists():
+            raise FileNotFoundError(f"Model file not found: {path}")
+        return load_model(str(path))

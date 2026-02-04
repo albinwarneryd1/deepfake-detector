@@ -12,7 +12,8 @@ class ImagePreprocessor:
         Output: float32 tensor (1, H, W, 3) normalized to [0,1]
         """
         if image_bgr is None or image_bgr.size == 0:
-            raise ValueError("Empty image provided.")
+         raise ValueError("Received empty image for preprocessing")
+
 
         resized = cv2.resize(image_bgr, self.target_size, interpolation=cv2.INTER_AREA)
         x = resized.astype(np.float32) / 255.0
