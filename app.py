@@ -14,6 +14,7 @@ st.set_page_config(page_title="Deepfake Detector", layout="wide")
 # Always show header (never blank)
 st.markdown(
     "<h1 style='text-align:center; color: grey;'>DEEPFAKE DETECTION IN SOCIAL MEDIA CONTENT</h1>",
+    
     unsafe_allow_html=True
 )
 
